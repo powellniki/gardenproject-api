@@ -35,6 +35,7 @@ class Posts(ViewSet):
         return Response(serialized.data, status=status.HTTP_200_OK)
     
 
+
 class PostOwnerSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -56,5 +57,5 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         url = serializers.HyperlinkedIdentityField(view_name="post", lookup_field="id")
-        fields = ('created_date', 'title', 'description', 'gardener',)
+        fields = ('created_date', 'title', 'description', 'gardener', 'comment_count',)
         depth = 1
