@@ -1,0 +1,20 @@
+[
+    {
+        "model": "gardenapi.post",
+        "pk": 1,
+        "fields": {
+            "title": "Turning Shade into Gold: Gardening in Low Light",
+            "description": "In the shadows of your garden lies the untapped potential for lush greenery. Shade-loving plants like hostas, ferns, and astilbes can transform these darker corners into vibrant displays. I’ve experimented with different combinations to create a serene shade garden that thrives despite the lack of sunlight. Check out my top picks for low-light plants that can bring life to your shaded garden spaces.",
+            "gardener_id": "6"
+        }
+    },
+    {
+        "model": "gardenapi.post",
+        "pk": 2,
+        "fields": {
+            "title": "Edible Landscapes: Growing Food Anywhere",
+            "description": "Who says your backyard can’t be both beautiful and bountiful? Integrating edible plants into ornamental garden designs has been a game changer for me. From vibrant Swiss chard to sprawling berry bushes, I’ll show you how to blend aesthetics with utility. Discover how to start your own edible landscape, no matter the size of your garden.",
+            "gardener_id": "7"
+        }
+    }
+]
