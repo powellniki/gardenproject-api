@@ -33,7 +33,7 @@ class Posts(ViewSet):
         topics = Topic.objects.all()
 
         posts = Post.objects.all()
-        serialized = PostSerializer(posts, many=True,)
+        serialized = PostSerializer(posts, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
 
@@ -41,14 +41,11 @@ class Posts(ViewSet):
 
 
 class GardenerSerializer(serializers.ModelSerializer):
-    username = serializers.SerializerMethodField()
+    username = serializers.ReadOnlyField()
 
     class Meta:
         model = Gardener
         fields = ('username',)
-
-    def get_username(self, obj):
-        return obj.user.username
 
 
 class PostSerializer(serializers.ModelSerializer):
