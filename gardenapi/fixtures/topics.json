@@ -10,7 +10,7 @@
         "model": "gardenapi.topic",
         "pk": 2,
         "fields": {
-            "name": "Landscaping and Garden Design"
+            "name": "Gardening Design"
         }
     },
     {
@@ -59,82 +59,89 @@
         "model": "gardenapi.topic",
         "pk": 9,
         "fields": {
-            "name": "Roses"
+            "name": "Annuals"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 10,
         "fields": {
-            "name": "Indoor Plants"
+            "name": "Flowers"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 11,
         "fields": {
-            "name": "Organic Gardening"
+            "name": "Indoor Plants"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 12,
         "fields": {
-            "name": "Plant Identification"
+            "name": "Organic Gardening"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 13,
         "fields": {
-            "name": "Compost"
+            "name": "Plant Identification"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 14,
         "fields": {
-            "name": "Recyling"
+            "name": "Compost"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 15,
         "fields": {
-            "name": "Pests"
+            "name": "Recyling"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 16,
         "fields": {
-            "name": "Gardening Tools"
+            "name": "Pests"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 17,
         "fields": {
-            "name": "Greenhouse Gardening"
+            "name": "Gardening Tools"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 18,
         "fields": {
-            "name": "Garden Photography"
+            "name": "Greenhouse Gardening"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 19,
         "fields": {
-            "name": "Garden Projects"
+            "name": "Garden Photography"
         }
     },
     {
         "model": "gardenapi.topic",
         "pk": 20,
+        "fields": {
+            "name": "Garden Projects"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 21,
         "fields": {
             "name": "Showcase"
         }
