@@ -1,0 +1,34 @@
+[
+    {
+        "model": "gardenapi.following",
+        "pk": 1,
+        "fields": {
+            "follower_id": 4,
+            "following_id": 5
+        }
+    },
+    {
+        "model": "gardenapi.following",
+        "pk": 2,
+        "fields": {
+            "follower_id": 5,
+            "following_id": 6
+        }
+    },
+    {
+        "model": "gardenapi.following",
+        "pk": 3,
+        "fields": {
+            "follower_id": 6,
+            "following_id": 7
+        }
+    },
+    {
+        "model": "gardenapi.following",
+        "pk": 4,
+        "fields": {
+            "follower_id": 7,
+            "following_id": 4
+        }
+    }
+]

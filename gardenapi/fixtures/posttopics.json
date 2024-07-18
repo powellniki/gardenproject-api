@@ -1,0 +1,42 @@
+[
+    {
+        "model": "gardenapi.posttopic",
+        "pk": 1,
+        "fields": {
+            "post_id": 1,
+            "topic_id": 2
+        }
+    },
+    {
+        "model": "gardenapi.posttopic",
+        "pk": 2,
+        "fields": {
+            "post_id": 1,
+            "topic_id": 9
+        }
+    },
+    {
+        "model": "gardenapi.posttopic",
+        "pk": 3,
+        "fields": {
+            "post_id": 2,
+            "topic_id": 4
+        }
+    },
+    {
+        "model": "gardenapi.posttopic",
+        "pk": 4,
+        "fields": {
+            "post_id": 2,
+            "topic_id": 5
+        }
+    },
+    {
+        "model": "gardenapi.posttopic",
+        "pk": 5,
+        "fields": {
+            "post_id": 2,
+            "topic_id": 12
+        }
+    }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "model": "gardenapi.comment",
+        "pk": 1,
+        "fields": {
+            "comment": "Great post! Thanks for sharing!",
+            "post_id": 1,
+            "gardener_id": 4
+        }
+    },
+    {
+        "model": "gardenapi.comment",
+        "pk": 2,
+        "fields": {
+            "comment": "When are you gonna post your picks for low-light plants?? Am I missing it somewhere?",
+            "post_id": 1,
+            "gardener_id": 5
+        }
+    },
+    {
+        "model": "gardenapi.comment",
+        "pk": 3,
+        "fields": {
+            "comment": "I love edible plants!",
+            "post_id": 2,
+            "gardener_id": 5
+        }
+    },
+    {
+        "model": "gardenapi.comment",
+        "pk": 4,
+        "fields": {
+            "comment": "Personally i think eating plants is overrated. I'll stick with gardening for beauty. But you do you.",
+            "post_id": 2,
+            "gardener_id": 6
+        }
+    },
+    {
+        "model": "gardenapi.comment",
+        "pk": 5,
+        "fields": {
+            "comment": "SWISS CHARD! YES!",
+            "post_id": 2,
+            "gardener_id": 7
+        }
+    }
+]
