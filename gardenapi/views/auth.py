@@ -64,8 +64,7 @@ def register_user(request):
     )
 
     gardener = Gardener.objects.create(
-        phone_number=req_body['phone_number'],
-        address=req_body['address'],
+        image="images/defaultprofileimage.png",
         user=new_user
     )
 
