@@ -1,0 +1,74 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$fHDURJBIASpx$trZS1MWc6YiNe5EYNBap+P+zMAwpNgNbUZH/b9bgvdw=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "niki_gardens",
+            "first_name": "Niki",
+            "last_name": "Powell",
+            "email": "nikipowell@email.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2019-10-10T19:12:13.676Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$fHDURJBIASpx$trZS1MWc6YiNe5EYNBap+P+zMAwpNgNbUZH/b9bgvdw=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "JimmyJohn",
+            "first_name": "Jimmy",
+            "last_name": "Hornton",
+            "email": "jhornton@email.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-10-10T22:47:43.564Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$fHDURJBIASpx$trZS1MWc6YiNe5EYNBap+P+zMAwpNgNbUZH/b9bgvdw=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "Pixie_Cutie",
+            "first_name": "Pixie",
+            "last_name": "Liscious",
+            "email": "pixie@email.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-10-10T22:48:19.899Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$fHDURJBIASpx$trZS1MWc6YiNe5EYNBap+P+zMAwpNgNbUZH/b9bgvdw=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "in_jeffs_garden",
+            "first_name": "Jeff",
+            "last_name": "E",
+            "email": "jeffe@email.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-10-10T22:48:53.984Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

@@ -1,0 +1,43 @@
+[
+    {
+        "model": "gardenapi.gardener",
+        "pk": 4,
+        "fields": {
+            "user": 5,
+            "location": "Nashville, TN",
+            "bio": "I blend the rhythms of Music City with the peace of native gardens. My designs focus on sustainable beauty, bringing drought-resistant and wildlife-friendly spaces to life.",
+            "image": "images/defaultprofileimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.gardener",
+        "pk": 5,
+        "fields": {
+            "user": 6,
+            "location": "Houston, TX",
+            "bio": "I'm an urban gardener dedicated to transforming city spaces into green oases. I specialize in creating rooftop gardens and vertical green walls that contribute to cleaner, greener urban environments.",
+            "image": "images/defaultprofileimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.gardener",
+        "pk": 6,
+        "fields": {
+            "user": 7,
+            "location": "Los Angeles, CA",
+            "bio": "I thrive on the challenge of Southern California’s diverse climates. From succulent gardens to lush vegetable patches, I design spaces that are as functional as they are beautiful.",
+            "image": "images/defaultprofileimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.gardener",
+        "pk": 7,
+        "fields": {
+            "user": 8,
+            "location": "Shoulderblade, KY",
+            "bio": "I harness the rich soils of Eastern Kentucky to grow heirloom vegetables and herbs. My gardens are a blend of tradition and innovation, aimed at promoting local food security and sustainability.",
+            "image": "images/defaultprofileimage.png"
+        }
+    }
+]
+    
