@@ -1,0 +1,142 @@
+[
+    {
+        "model": "gardenapi.topic",
+        "pk": 1,
+        "fields": {
+            "name": "General Gardening Talk"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 2,
+        "fields": {
+            "name": "Landscaping and Garden Design"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 3,
+        "fields": {
+            "name": "Lawns"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 4,
+        "fields": {
+            "name": "Fruits"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 5,
+        "fields": {
+            "name": "Vegetables"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 6,
+        "fields": {
+            "name": "Herbs"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 7,
+        "fields": {
+            "name": "Trees, Shrubs, Hedges"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 8,
+        "fields": {
+            "name": "Perennials"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 9,
+        "fields": {
+            "name": "Roses"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 10,
+        "fields": {
+            "name": "Indoor Plants"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 11,
+        "fields": {
+            "name": "Organic Gardening"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 12,
+        "fields": {
+            "name": "Plant Identification"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 13,
+        "fields": {
+            "name": "Compost"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 14,
+        "fields": {
+            "name": "Recyling"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 15,
+        "fields": {
+            "name": "Pests"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 16,
+        "fields": {
+            "name": "Gardening Tools"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 17,
+        "fields": {
+            "name": "Greenhouse Gardening"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 18,
+        "fields": {
+            "name": "Garden Photography"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 19,
+        "fields": {
+            "name": "Garden Projects"
+        }
+    },
+    {
+        "model": "gardenapi.topic",
+        "pk": 20,
+        "fields": {
+            "name": "Showcase"
+        }
+    }
+]
