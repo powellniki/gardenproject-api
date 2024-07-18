@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from gardenapi.models import Post, Gardener
+from gardenapi.models import Post, Gardener, Topic
 
 
 
@@ -30,25 +30,25 @@ class Posts(ViewSet):
         pass
 
     def list(self, request):
+        topics = Topic.objects.all()
+
         posts = Post.objects.all()
         serialized = PostSerializer(posts, many=True,)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
 
 
-class PostOwnerSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = User
-        fields = ('username',)
 
 
 class GardenerSerializer(serializers.ModelSerializer):
-    user = PostOwnerSerializer(many=False)
+    username = serializers.SerializerMethodField()
 
     class Meta:
         model = Gardener
-        fields = ('user',)
+        fields = ('username',)
+
+    def get_username(self, obj):
+        return obj.user.username
 
 
 class PostSerializer(serializers.ModelSerializer):
