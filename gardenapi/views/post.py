@@ -1,15 +1,16 @@
-from rest_framework.decorators import action
-from django.contrib.auth.models import User
-from django.core.files.base import ContentFile
-from django.http import HttpResponseServerError
-from django.utils import timezone
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django.db import models
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from django.utils import timezone
+from rest_framework.decorators import action
+from django.contrib.auth.models import User
+from django.core.files.base import ContentFile
+from django.http import HttpResponseServerError
 from gardenapi.models import Post, Gardener, PostTopic, Topic, Comment
+from .topic import TopicSerializer
 
 
 
@@ -102,14 +103,6 @@ class Posts(ViewSet):
 
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-
-
-class TopicSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Topic
-        fields = ('name',)
 
 
 class GardenerSerializer(serializers.ModelSerializer):

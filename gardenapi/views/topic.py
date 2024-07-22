@@ -2,7 +2,6 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from django.db import models
 from gardenapi.models import Topic
 
 class Topics(ViewSet):
@@ -29,4 +28,4 @@ class Topics(ViewSet):
 class TopicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Topic
-        fields = ('id', 'name',)
+        fields = ('name',)
