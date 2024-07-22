@@ -14,3 +14,7 @@ class Gardener(models.Model):
         width_field=None, 
         max_length=None
     )
+
+    @property
+    def username(self):
+        return self.user.username
