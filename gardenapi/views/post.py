@@ -64,6 +64,7 @@ class Posts(ViewSet):
             # Return validation errors if any
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+
     def retrieve(self, request, pk=None):
         try:
             post = Post.objects.get(pk=pk)
@@ -72,11 +73,22 @@ class Posts(ViewSet):
         except Post.DoesNotExist:
             return Response({'error': 'Post not found'}, status=status.HTTP_404_NOT_FOUND)
 
+
     def update(self, request, pk=None):
         pass
 
+
     def destroy(self, request, pk=None):
-        pass
+        try:
+            post = Post.objects.get(pk=pk)
+            if post.gardener.user == request.user:
+                post.delete()
+                return Response(None, status=status.HTTP_204_NO_CONTENT)
+            else:
+                return Response({'error': 'You do not own that post'}, status=status.HTTP_403_FORBIDDEN)
+        except Post.DoesNotExist:
+            return Response({'error': 'Post not found'}, status=status.HTTP_404_NOT_FOUND)
+
 
     def list(self, request):
         filter_type = request.query_params.get('filter', None)
