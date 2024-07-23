@@ -1,16 +1,13 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from rest_framework import serializers
 from rest_framework import status
 from django.db import models
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django.utils import timezone
 from rest_framework.decorators import action
-from django.contrib.auth.models import User
-from django.core.files.base import ContentFile
-from django.http import HttpResponseServerError
-from gardenapi.models import Post, Gardener, PostTopic, Topic, Comment
-from .topic import TopicSerializer
+from gardenapi.models import Post, Gardener, PostTopic, Topic
+from .serializers import PostCreateSerializer, PostSerializer
+
 
 
 
@@ -148,42 +145,4 @@ class Posts(ViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class GardenerSerializer(serializers.ModelSerializer):
-    username = serializers.ReadOnlyField()
 
-    class Meta:
-        model = Gardener
-        fields = ('username',)
-
-
-class PostCreateSerializer(serializers.ModelSerializer):
-    posttopics = serializers.ListField(child=serializers.IntegerField(), write_only=True, required=False)
-
-    class Meta:
-        model = Post
-        fields = ('title', 'description', 'posttopics',)
-
-
-class CommentSerializer(serializers.ModelSerializer):
-    gardener = GardenerSerializer(many=False)
-
-    class Meta:
-        model = Comment
-        fields = ('comment', 'date', 'gardener',)
-
-
-class PostSerializer(serializers.ModelSerializer):
-    gardener = GardenerSerializer(many=False)
-    comment_count = serializers.SerializerMethodField()
-    topics = TopicSerializer(many=True)
-    comments = CommentSerializer(many=True, read_only=True)
-    posttopics = serializers.ListField(child=serializers.IntegerField(), write_only=True, required=False)
-
-    class Meta:
-        model = Post
-        fields = ('created_date', 'title', 'description', 'gardener', 'comment_count', 'comments', 'topics', 'posttopics',)
-        depth = 1
-
-    def get_comment_count(self, obj):
-        # calculate the number of comments for the post
-        return Comment.objects.filter(post=obj).count()

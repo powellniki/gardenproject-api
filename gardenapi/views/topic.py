@@ -1,8 +1,8 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from rest_framework import serializers
 from rest_framework import status
 from gardenapi.models import Topic
+from .serializers import TopicSerializer
 
 class Topics(ViewSet):
     """Request handlers for Topics in the Garden Platform"""
@@ -25,7 +25,3 @@ class Topics(ViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class TopicSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Topic
-        fields = ('name',)
