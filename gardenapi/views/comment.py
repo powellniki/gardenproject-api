@@ -58,7 +58,7 @@ class Comments(ViewSet):
 
             # Check if the authenticated user has permission to edit the comment
             if comment.gardener.user != request.user:
-                return Response({'message': 'You do not have permission to edit this post'}, status=status.HTTP_403_FORBIDDEN)
+                return Response({'message': 'You do not have permission to edit this comment'}, status=status.HTTP_403_FORBIDDEN)
 
             # validate the serializer
             serializer = CommentSerializer(comment, data=request.data, partial=True, context={'request': request})
@@ -76,7 +76,24 @@ class Comments(ViewSet):
 
 
     def destroy(self, request, pk=None):
-        pass
+
+        # make sure the gardener is authenticated
+        if not request.user.is_authenticated:
+            return Response({'error': 'Please provide authentication credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        # delete the comment
+        try:
+            comment = Comment.objects.get(pk=pk)
+            if comment.gardener.user == request.user:
+                comment.delete()
+                return Response(None, status=status.HTTP_204_NO_CONTENT)
+            
+            return Response({'message': 'You do not have permission to edit this comment'}, status=status.HTTP_403_FORBIDDEN)
+
+        except Comment.DoesNotExist:
+            return Response({'message': 'Comment does not exist'}, status=status.HTTP_404_NOT_FOUND)
+
+
 
     def list(self, request):
         chosen_post = request.query_params.get('post', None)
