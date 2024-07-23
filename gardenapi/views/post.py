@@ -120,6 +120,11 @@ class Posts(ViewSet):
 
 
     def destroy(self, request, pk=None):
+        
+        # make sure the gardener is authenticated
+        if not request.user.is_authenticated:
+            return Response({'error': 'Please provide authentication credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+        
         try:
             post = Post.objects.get(pk=pk)
             if post.gardener.user == request.user:

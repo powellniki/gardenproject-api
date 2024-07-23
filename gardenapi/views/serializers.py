@@ -35,14 +35,14 @@ class PostCreateSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     gardener = GardenerSerializer(many=False)
-    comment_count = serializers.SerializerMethodField()
-    topics = TopicSerializer(many=True)
-    comments = CommentSerializer(many=True, read_only=True)
-    posttopics = serializers.ListField(child=serializers.IntegerField(), write_only=True, required=False)
+    # comment_count = serializers.SerializerMethodField()
+    # topics = TopicSerializer(many=True)
+    # comments = CommentSerializer(many=True, read_only=True)
+    # posttopics = serializers.ListField(child=serializers.IntegerField(), write_only=True, required=False)
 
     class Meta:
         model = Post
-        fields = ('created_date', 'title', 'description', 'gardener', 'comment_count', 'comments', 'topics', 'posttopics',)
+        fields = ('created_date', 'title', 'description', 'gardener',)
         depth = 1
 
     def get_comment_count(self, obj):
