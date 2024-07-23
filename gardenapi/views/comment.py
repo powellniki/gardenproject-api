@@ -15,6 +15,10 @@ class Comments(ViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def create(self, request):
+        # make sure the gardener is authenticated
+        if not request.user.is_authenticated:
+            return Response({'error': 'Please provide authentication credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+        
         # get the gardener instance associated with the authenticated user
         gardener = Gardener.objects.get(user=request.auth.user)
 
