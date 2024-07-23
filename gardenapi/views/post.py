@@ -76,7 +76,50 @@ class Posts(ViewSet):
 
 
     def update(self, request, pk=None):
-        pass
+
+        # make sure gardener is authenticated
+        if not request.user.is_authenticated:
+            return Response({'error': 'Please provide authentication credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        try:
+            post = Post.objects.get(pk=pk)
+
+            # Check if the authenticated user has permission to edit the post
+            if post.gardener.user != request.user:
+                return Response({'message': 'You do not have permission to edit this post'}, status=status.HTTP_403_FORBIDDEN)
+            
+            
+            # validate the serializer
+            serializer = PostSerializer(post, data=request.data, partial=True, context={'request': request})
+            if serializer.is_valid():
+                validated_data = serializer.validated_data
+                post.title = validated_data.get('title', post.title)
+                post.description = validated_data.get('description', post.description)
+
+                # gardener = Gardener.objects.get(user=request.auth.user)
+                # post.gardener = gardener
+
+                post.save()
+
+                # clear existing PostTopic relationships
+                PostTopic.objects.filter(post=post).delete()
+
+                # establish new PostTopic relationships
+                posttopic_ids = serializer.validated_data.get('posttopics', [])
+                for topic_id in posttopic_ids:
+                    try:
+                        topic = Topic.objects.get(id=topic_id)
+                        PostTopic.objects.create(post=post, topic=topic)
+                    except Topic.DoesNotExist:
+                        continue
+
+                return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+            
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            
+        except Post.DoesNotExist:
+            return Response({'message': 'The post you are trying to edit does not exist'}, status=status.HTTP_404_NOT_FOUND)
+
 
 
     def destroy(self, request, pk=None):
@@ -134,10 +177,11 @@ class PostSerializer(serializers.ModelSerializer):
     comment_count = serializers.SerializerMethodField()
     topics = TopicSerializer(many=True)
     comments = CommentSerializer(many=True, read_only=True)
+    posttopics = serializers.ListField(child=serializers.IntegerField(), write_only=True, required=False)
 
     class Meta:
         model = Post
-        fields = ('created_date', 'title', 'description', 'gardener', 'comment_count', 'comments', 'topics',)
+        fields = ('created_date', 'title', 'description', 'gardener', 'comment_count', 'comments', 'topics', 'posttopics',)
         depth = 1
 
     def get_comment_count(self, obj):
