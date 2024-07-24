@@ -138,13 +138,19 @@ class Posts(ViewSet):
 
     def list(self, request):
         filter_type = request.query_params.get('filter', None)
+        topic_id = request.query_params.get('topic', None)
+
+        if topic_id:
+            posts = Post.objects.filter(posttopics__topic__id=topic_id)
+        else:
+            posts = Post.objects.all()
 
         if filter_type == 'recent':
             posts = Post.objects.order_by('-created_date')
         elif filter_type == 'popular':
             posts = Post.objects.annotate(comment_count=models.Count('comments')).order_by('-comment_count')
-        else:
-            posts = Post.objects.all()
+        # else:
+        #     posts = Post.objects.all()
 
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
