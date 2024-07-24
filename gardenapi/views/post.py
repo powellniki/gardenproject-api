@@ -138,10 +138,10 @@ class Posts(ViewSet):
 
     def list(self, request):
         filter_type = request.query_params.get('filter', None)
-        topic_type = request.query_params.get('topic', None)
+        topic_id = request.query_params.get('topic', None)
 
-        if topic_type:
-            posts = Post.objects.filter(posttopics__topic__name=topic_type)
+        if topic_id:
+            posts = Post.objects.filter(posttopics__topic__id=topic_id)
         else:
             posts = Post.objects.all()
 
