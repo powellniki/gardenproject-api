@@ -3,12 +3,19 @@ from django.contrib.auth.models import User
 from gardenapi.models import Post, Gardener, PostTopic, Topic, Comment
 
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id',)
+
 class GardenerSerializer(serializers.ModelSerializer):
     username = serializers.ReadOnlyField()
+    # id = UserSerializer(many=False)
 
     class Meta:
         model = Gardener
-        fields = ('username',)
+        fields = ('userId', 'username',)
+        depth = 2
 
 
 class CommentSerializer(serializers.ModelSerializer):
