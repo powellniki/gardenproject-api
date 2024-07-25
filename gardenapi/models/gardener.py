@@ -18,3 +18,7 @@ class Gardener(models.Model):
     @property
     def username(self):
         return self.user.username
+    
+    @property
+    def userId(self):
+        return self.user.id

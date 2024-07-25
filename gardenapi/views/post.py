@@ -87,14 +87,19 @@ class Posts(ViewSet):
             
             
             # validate the serializer
-            serializer = PostSerializer(post, data=request.data, partial=True, context={'request': request})
+            serializer = PostCreateSerializer(post, data=request.data, partial=True, context={'request': request})
             if serializer.is_valid():
                 validated_data = serializer.validated_data
                 post.title = validated_data.get('title', post.title)
                 post.description = validated_data.get('description', post.description)
 
-                # gardener = Gardener.objects.get(user=request.auth.user)
-                # post.gardener = gardener
+                # Get the gardener associated with the authenticated user
+                try:
+                    gardener = Gardener.objects.get(user=request.user)
+                except Gardener.DoesNotExist:
+                    return Response({'error': 'Gardener does not exist'}, status=status.HTTP_404_NOT_FOUND)
+                
+                post.gardener = gardener
 
                 post.save()
 
@@ -110,7 +115,9 @@ class Posts(ViewSet):
                     except Topic.DoesNotExist:
                         continue
 
-                return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+                # Serialize and return the new post instance
+                response_serializer = PostSerializer(post, context={'request': request})
+                return Response(response_serializer.data, status=status.HTTP_204_NO_CONTENT)
             
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             
