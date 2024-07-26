@@ -3,18 +3,90 @@
         "model": "gardenapi.post",
         "pk": 1,
         "fields": {
-            "title": "Turning Shade into Gold: Gardening in Low Light",
-            "description": "In the shadows of your garden lies the untapped potential for lush greenery. Shade-loving plants like hostas, ferns, and astilbes can transform these darker corners into vibrant displays. I’ve experimented with different combinations to create a serene shade garden that thrives despite the lack of sunlight. Check out my top picks for low-light plants that can bring life to your shaded garden spaces.",
-            "gardener_id": "6"
+            "title": "Heirloom vs Hybrid Tomatoes",
+            "description": "This season I decided to throw down a little garden challenge for myself—The Great Tomato Experiment. I planted a mix of heirloom and hybrid tomatoes to see which ones could stand up to my less-than-perfect gardening skills. The heirlooms are charming with their funky shapes and vibrant flavors, but those hybrids are growing like they’re on a mission. I’m curious, what’s been your experience? Are you team heirloom for that old-school taste, or do you go hybrid for the bountiful harvest? Share your tomato tales—I’m all ears (and tomatoes)!",
+            "gardener_id": "4"
         }
     },
     {
         "model": "gardenapi.post",
         "pk": 2,
         "fields": {
-            "title": "Edible Landscapes: Growing Food Anywhere",
-            "description": "Who says your backyard can’t be both beautiful and bountiful? Integrating edible plants into ornamental garden designs has been a game changer for me. From vibrant Swiss chard to sprawling berry bushes, I’ll show you how to blend aesthetics with utility. Discover how to start your own edible landscape, no matter the size of your garden.",
+            "title": "My weekend war with weeds!!",
+            "description": "Hey fellow green thumbs, just spent my weekend in the trenches—literally! My garden’s been invaded by weeds, and it was me versus the wildlings. Armed with nothing but my trusty trowel and maybe too much coffee, I set out to reclaim my veggie patch. Let me tell you, it’s wild how fast these little guys pop up! Managed to clear them out, and my tomatoes are thanking me already. How do you deal with your garden invaders? Drop your tips or weed war stories below. Let’s help each other keep our gardens pristine (or at least pretend to)!",
+            "gardener_id": "5"
+        }
+    },
+    {
+        "model": "gardenapi.post",
+        "pk": 3,
+        "fields": {
+            "title": "Planting edible landscapes",
+            "description": "So, I might’ve gone a bit overboard at the plant nursery again. You know how it goes—you see all those vibrant flowers and funky herbs, and suddenly, your cart’s overflowing. I came home and realized I may not have enough garden space for all these beauties. I’ve squeezed in some marigolds between the peppers and found a spot for that extra basil, but it’s a tight fit. Anyone else guilty of overplanting? How do you make space, or do you just let it grow wild? Drop your confessions or tips below—this impulsive gardener needs them!",
+            "gardener_id": "6"
+        }
+    },
+    {
+        "model": "gardenapi.post",
+        "pk": 4,
+        "fields": {
+            "title": "What's Eating my Garden??",
+            "description": "Ever strolled out to your garden in the morning to find your veggies mysteriously munched? Yeah, me too. Turns out, we’re hosting nightly critter feasts. After spotting a rabbit family and a couple of squirrels turning my garden into their personal buffet, I went all in on some gentle deterrents. A little chicken wire here, some natural repellents there, and voila—my leafy greens are no longer up for grabs. If you’re battling the midnight snackers, maybe it’s time to set up your garden’s defenses too!",
             "gardener_id": "7"
+        }
+    },
+    {
+        "model": "gardenapi.post",
+        "pk": 5,
+        "fields": {
+            "title": "The Great Tomato Tug-of-War: Birds vs. Me",
+            "description": "So, the birds in my neighborhood have decided that my tomato plants are the new hot spot for their daily hangouts—and snacks. Every morning, it’s like a scene from a cartoon, where I find half-pecked tomatoes left like abandoned ships. Not cool, feathered friends, not cool. I’ve tried everything from netting to those shiny bird scare tapes. Finally, a scarecrow (dubbed Mr. ScareTomato) seems to be doing the trick. Anyone else in a garden tug-of-war with wildlife? Let’s trade tips!",
+            "gardener_id": "4"
+        }
+    },
+    {
+        "model": "gardenapi.post",
+        "pk": 6,
+        "fields": {
+            "title": "Herbs Gone Wild",
+            "description": "Ever felt like your herb garden has a mind of its own? Mine’s turned into a wild jungle, with mint running amok and rosemary staging a coup for more territory. It’s a flavorful chaos! I’ve started implementing strict borders using old pots and even some creative upcycled items to keep everyone in their own lane. If your herbs are staging their own garden takeover, maybe it’s time to lay down the law with some clever gardening hacks. Who knew gardening could feel like mediating a plant peace treaty?",
+            "gardener_id": "5"
+        }
+    },
+    {
+        "model": "gardenapi.post",
+        "pk": 7,
+        "fields": {
+            "title": "Confessions of a Midnight Planter",
+            "description": "Who else loves the quiet calm of the garden at night? Last night, under the moonlight, I finally planted those moonflowers I’ve been meaning to get in the ground. There’s something magical about gardening by the stars—plus, it’s cooler and the neighbors aren’t out to chat my ear off. If you haven’t tried it, I highly recommend a midnight gardening session. Just don’t forget a flashlight, or you might end up planting your slippers instead of your seedlings!",
+            "gardener_id": "6"
+        }
+    },
+    {
+        "model": "gardenapi.post",
+        "pk": 8,
+        "fields": {
+            "title": "the lazy gardeners guide to perennials",
+            "description": "Is your thumb kind of green but mostly just looking for an easy win? Let me tell you about the joys of planting perennials. Plant once, and these loyal beauties come back to visit every year, like old friends. I’ve got daylilies that pop up without fail, bringing color and life to my garden with zero reminders. If you’re looking for garden drama without the high maintenance, perennials are your new best buds. Trust me, they’re the low-effort, high-reward choice every lazy gardener needs!",
+            "gardener_id": "7"
+        }
+    },
+    {
+        "model": "gardenapi.post",
+        "pk": 9,
+        "fields": {
+            "title": "Growing Crunchy Greens for Salads",
+            "description": "Ever dream of just plucking your salad straight from the soil? Well, it’s easier than you think! I started with a small raised bed, threw in some lettuce, arugula, and spinach seeds, and boom—salad central. It’s incredibly satisfying to eat something you’ve grown yourself, plus it’s as fresh as it gets. Dive into the world of growing your own greens; it’s simple, quick, and oh-so rewarding. Who’s ready to turn their garden into the freshest salad bar in town?",
+            "gardener_id": "4"
+        }
+    },
+    {
+        "model": "gardenapi.post",
+        "pk": 10,
+        "fields": {
+            "title": "de-stressing with dirt :)",
+            "description": "Need a break from the screen? Get your hands dirty! I’ve found that nothing beats the stress like spending an hour in my garden. It’s not just about beautifying the space; it’s about clearing my head. The rhythm of weeding, planting, and even just pottering around with the plants is my go-to therapy. Trust me, give garden therapy a try—your mind (and your yard) will thank you!",
+            "gardener_id": "5"
         }
     }
 ]

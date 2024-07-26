@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from gardenapi.models import Post, Gardener, PostTopic, Topic, Comment
+from gardenapi.models import Post, Gardener, PostTopic, Topic, Comment, Image
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -8,9 +8,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id',)
 
+
 class GardenerSerializer(serializers.ModelSerializer):
     username = serializers.ReadOnlyField()
     # id = UserSerializer(many=False)
+
 
     class Meta:
         model = Gardener
@@ -44,8 +46,6 @@ class PostSerializer(serializers.ModelSerializer):
     gardener = GardenerSerializer(many=False)
     comment_count = serializers.SerializerMethodField()
     topics = TopicSerializer(many=True)
-    # comments = CommentSerializer(many=True, read_only=True)
-    # posttopics = serializers.ListField(child=serializers.IntegerField(), write_only=True, required=False)
 
     class Meta:
         model = Post

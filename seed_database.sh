@@ -13,3 +13,4 @@ python3 manage.py loaddata topics
 python3 manage.py loaddata posttopics
 python3 manage.py loaddata followers
 python3 manage.py loaddata comments
+python3 manage.py loaddata images

@@ -54,6 +54,9 @@ class Posts(ViewSet):
                     PostTopic.objects.create(post=new_post, topic=topic)
                 except Topic.DoesNotExist:
                     continue
+            
+            # Add images to new post
+
 
             # Serialize and return the new post instance
             response_serializer = PostSerializer(new_post, context={'request': request})
