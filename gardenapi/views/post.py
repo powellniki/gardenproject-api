@@ -122,6 +122,13 @@ class Posts(ViewSet):
                     except Topic.DoesNotExist:
                         continue
 
+                # Handle Image Uploads
+                if 'image_path' in request.FILES:
+                    # Delete existing images if new ones are uploaded
+                    Image.objects.filter(post=post).delete()
+                    for image in request.FILES.getlist('image_path'):
+                        Image.objects.create(post=post, image_path=image)
+
                 # Serialize and return the new post instance
                 response_serializer = PostSerializer(post, context={'request': request})
                 return Response(response_serializer.data, status=status.HTTP_204_NO_CONTENT)

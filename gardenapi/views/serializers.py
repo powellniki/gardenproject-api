@@ -48,7 +48,11 @@ class TopicSerializer(serializers.ModelSerializer):
 
 
 class PostCreateSerializer(serializers.ModelSerializer):
-    posttopics = serializers.ListField(child=serializers.IntegerField(), write_only=True, required=False)
+    posttopics = serializers.ListField(
+        child=serializers.IntegerField(), 
+        write_only=True, 
+        required=False
+        )
 
     class Meta:
         model = Post
