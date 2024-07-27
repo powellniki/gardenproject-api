@@ -1,0 +1,82 @@
+[
+    {
+        "model": "gardenapi.image",
+        "pk": 1,
+        "fields": {
+            "post_id": 1,
+            "image_path": "defaultimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.image",
+        "pk": 2,
+        "fields": {
+            "post_id": 2,
+            "image_path": "defaultimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.image",
+        "pk": 3,
+        "fields": {
+            "post_id": 3,
+            "image_path": "defaultimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.image",
+        "pk": 4,
+        "fields": {
+            "post_id": 4,
+            "image_path": "defaultimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.image",
+        "pk": 5,
+        "fields": {
+            "post_id": 5,
+            "image_path": "defaultimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.image",
+        "pk": 6,
+        "fields": {
+            "post_id": 6,
+            "image_path": "defaultimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.image",
+        "pk": 7,
+        "fields": {
+            "post_id": 7,
+            "image_path": "defaultimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.image",
+        "pk": 8,
+        "fields": {
+            "post_id": 8,
+            "image_path": "defaultimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.image",
+        "pk": 9,
+        "fields": {
+            "post_id": 8,
+            "image_path": "defaultimage.png"
+        }
+    },
+    {
+        "model": "gardenapi.image",
+        "pk": 10,
+        "fields": {
+            "post_id": 10,
+            "image_path": "defaultimage.png"
+        }
+    }
+]

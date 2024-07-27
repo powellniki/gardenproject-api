@@ -3,9 +3,11 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db import models
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from django.core.files.base import ContentFile
+import base64
 from django.utils import timezone
 from rest_framework.decorators import action
-from gardenapi.models import Post, Gardener, PostTopic, Topic
+from gardenapi.models import Post, Gardener, PostTopic, Topic, Image
 from .serializers import PostCreateSerializer, PostSerializer
 
 
@@ -54,6 +56,11 @@ class Posts(ViewSet):
                     PostTopic.objects.create(post=new_post, topic=topic)
                 except Topic.DoesNotExist:
                     continue
+            
+            # Handles Image Uploads
+            if 'image_path' in request.FILES:
+                for image in request.FILES.getlist('image_path'):
+                    Image.objects.create(post=new_post, image_path=image)
 
             # Serialize and return the new post instance
             response_serializer = PostSerializer(new_post, context={'request': request})
@@ -92,7 +99,7 @@ class Posts(ViewSet):
                 validated_data = serializer.validated_data
                 post.title = validated_data.get('title', post.title)
                 post.description = validated_data.get('description', post.description)
-
+                
                 # Get the gardener associated with the authenticated user
                 try:
                     gardener = Gardener.objects.get(user=request.user)
@@ -114,6 +121,14 @@ class Posts(ViewSet):
                         PostTopic.objects.create(post=post, topic=topic)
                     except Topic.DoesNotExist:
                         continue
+                
+                # Clear existing image relationships
+                # Image.objects.filter(post=post).delete()
+
+                # Handle new image Uploads
+                if 'image_path' in request.FILES:
+                    for image in request.FILES.getlist('image_path'):
+                        Image.objects.create(post=post, image_path=image)
 
                 # Serialize and return the new post instance
                 response_serializer = PostSerializer(post, context={'request': request})
@@ -159,7 +174,7 @@ class Posts(ViewSet):
         # else:
         #     posts = Post.objects.all()
 
-        serializer = PostSerializer(posts, many=True)
+        serializer = PostSerializer(posts, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
