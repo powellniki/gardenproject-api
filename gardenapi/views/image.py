@@ -6,8 +6,21 @@ from .serializers import ImageSerializer
 
 class Images(ViewSet):
 
-    def retrieve(self, request, pk=None):
-        pass
+    def destroy(self, request, pk=None):
+        
+        # make sure the gardener is authenticated
+        if not request.user.is_authenticated:
+            return Response({'error': 'Please provide authentication credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+        
+        try:
+            image = Image.objects.get(pk=pk)
+            image.delete()
+
+            return Response({}, status=status.HTTP_204_NO_CONTENT)
+        
+        except Image.DoesNotExist:
+            return Response({'message': 'Image does not exist'}, status=status.HTTP_404_NOT_FOUND)
+
 
     def list(self, request):
         post_id = request.query_params.get('post', None)
