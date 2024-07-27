@@ -123,11 +123,10 @@ class Posts(ViewSet):
                         continue
                 
                 # Clear existing image relationships
-                Image.objects.filter(post=post).delete()
+                # Image.objects.filter(post=post).delete()
 
                 # Handle new image Uploads
                 if 'image_path' in request.FILES:
-                    # Delete existing images if new ones are uploaded
                     for image in request.FILES.getlist('image_path'):
                         Image.objects.create(post=post, image_path=image)
 
