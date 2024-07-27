@@ -99,7 +99,7 @@ class Posts(ViewSet):
                 validated_data = serializer.validated_data
                 post.title = validated_data.get('title', post.title)
                 post.description = validated_data.get('description', post.description)
-
+                
                 # Get the gardener associated with the authenticated user
                 try:
                     gardener = Gardener.objects.get(user=request.user)
