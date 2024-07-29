@@ -92,7 +92,6 @@ class Posts(ViewSet):
             if post.gardener.user != request.user:
                 return Response({'message': 'You do not have permission to edit this post'}, status=status.HTTP_403_FORBIDDEN)
             
-            
             # validate the serializer
             serializer = PostCreateSerializer(post, data=request.data, partial=True, context={'request': request})
             if serializer.is_valid():

@@ -10,8 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class GardenerSerializer(serializers.ModelSerializer):
-    username = serializers.ReadOnlyField()
-    # id = UserSerializer(many=False)
+    username = serializers.CharField(source='user.username', required=False)
 
     class Meta:
         model = Gardener
