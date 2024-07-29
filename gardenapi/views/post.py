@@ -92,7 +92,6 @@ class Posts(ViewSet):
             if post.gardener.user != request.user:
                 return Response({'message': 'You do not have permission to edit this post'}, status=status.HTTP_403_FORBIDDEN)
             
-            
             # validate the serializer
             serializer = PostCreateSerializer(post, data=request.data, partial=True, context={'request': request})
             if serializer.is_valid():
@@ -159,13 +158,16 @@ class Posts(ViewSet):
 
 
     def list(self, request):
+        posts = Post.objects.all()
+
         filter_type = request.query_params.get('filter', None)
         topic_id = request.query_params.get('topic', None)
+        user_id = request.query_params.get('gardener', None)
 
         if topic_id:
             posts = Post.objects.filter(posttopics__topic__id=topic_id)
-        else:
-            posts = Post.objects.all()
+        # else:
+        #     posts = Post.objects.all()
 
         if filter_type == 'recent':
             posts = Post.objects.order_by('-created_date')
@@ -173,6 +175,10 @@ class Posts(ViewSet):
             posts = Post.objects.annotate(comment_count=models.Count('comments')).order_by('-comment_count')
         # else:
         #     posts = Post.objects.all()
+
+        if user_id:
+            posts = Post.objects.filter(gardener__user=user_id)
+        
 
         serializer = PostSerializer(posts, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
