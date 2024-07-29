@@ -10,7 +10,7 @@ class Profiles(ViewSet):
 
     def retrieve(self, request, pk=None):
         try:
-            profile = Gardener.objects.get(pk=pk)
+            profile = Gardener.objects.get(user=pk)
             serializer = GardenerSerializer(profile, context={'request': request})
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Gardener.DoesNotExist:
