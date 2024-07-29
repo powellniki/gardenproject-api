@@ -15,7 +15,7 @@ class GardenerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Gardener
-        fields = ('userId', 'username',)
+        fields = ('userId', 'username', 'location', 'bio',)
         depth = 2
 
 
