@@ -161,6 +161,7 @@ class Posts(ViewSet):
     def list(self, request):
         filter_type = request.query_params.get('filter', None)
         topic_id = request.query_params.get('topic', None)
+        gardener_id = request.query_params.get('gardener', None)
 
         if topic_id:
             posts = Post.objects.filter(posttopics__topic__id=topic_id)
@@ -173,6 +174,10 @@ class Posts(ViewSet):
             posts = Post.objects.annotate(comment_count=models.Count('comments')).order_by('-comment_count')
         # else:
         #     posts = Post.objects.all()
+
+        if gardener_id:
+            posts = Post.objects.filter(gardener=gardener_id)
+        
 
         serializer = PostSerializer(posts, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
