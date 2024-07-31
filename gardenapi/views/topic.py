@@ -11,7 +11,12 @@ class Topics(ViewSet):
         pass
 
     def retrieve(self, request, pk=None):
-        pass
+        try:
+            topic = Topic.objects.get(pk=pk)
+            serializer = TopicSerializer(topic, many=False, context={'request': request})
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Topic.DoesNotExist:
+            return Response({'message': 'The topic you requested does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
     def update(self, request, pk=None):
         pass
