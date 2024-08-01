@@ -63,6 +63,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'https://garden-app-y6rs2.ondigitalocean.app',
+]
+
 ROOT_URLCONF = 'gardenproject.urls'
 
 TEMPLATES = [
