@@ -48,7 +48,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1:3000',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
-    'http://garden-app-y6rs2.ondigitalocean.app',
+    'https://garden-app-y6rs2.ondigitalocean.app',
 )
 
 
